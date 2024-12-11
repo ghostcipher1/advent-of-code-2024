@@ -1,0 +1,26 @@
+{
+  "day9": {
+    "part1": {
+      "solved": true,
+      "date": "2024-12-10T22:25:09.943496",
+      "performance": "27246.06 ms"
+    },
+    "part2": {
+      "solved": true,
+      "date": "2024-12-10T22:25:09.943496",
+      "performance": "6581.72 ms"
+    }
+  },
+  "day10": {
+    "part1": {
+      "solved": true,
+      "date": "2024-12-11T01:11:02.467649",
+      "performance": "4.32 ms"
+    },
+    "part2": {
+      "solved": true,
+      "date": "2024-12-11T01:11:02.467649",
+      "performance": "5.02 ms"
+    }
+  }
+}
