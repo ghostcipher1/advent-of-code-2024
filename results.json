@@ -2,25 +2,73 @@
   "day9": {
     "part1": {
       "solved": true,
-      "date": "2024-12-10T22:25:09.943496",
-      "performance": "27246.06 ms"
+      "date": "2024-12-11T16:37:53.801275",
+      "performance": "20682.90 ms"
     },
     "part2": {
       "solved": true,
-      "date": "2024-12-10T22:25:09.943496",
-      "performance": "6581.72 ms"
+      "date": "2024-12-11T16:37:53.801275",
+      "performance": "5627.48 ms"
     }
   },
   "day10": {
     "part1": {
       "solved": true,
-      "date": "2024-12-11T01:11:02.467649",
-      "performance": "4.32 ms"
+      "date": "2024-12-11T16:40:38.112899",
+      "performance": "3.45 ms"
     },
     "part2": {
       "solved": true,
-      "date": "2024-12-11T01:11:02.467649",
-      "performance": "5.02 ms"
+      "date": "2024-12-11T16:40:38.113891",
+      "performance": "4.05 ms"
+    }
+  },
+  "day11": {
+    "part1": {
+      "solved": true,
+      "date": "2024-12-11T16:40:25.674634",
+      "performance": "2.00 ms"
+    },
+    "part2": {
+      "solved": true,
+      "date": "2024-12-11T16:40:25.674634",
+      "performance": "70.51 ms"
+    }
+  },
+  "day1": {
+    "part1": {
+      "solved": true,
+      "date": "2024-12-11T17:28:28.205724",
+      "performance": "0.00 ms"
+    },
+    "part2": {
+      "solved": true,
+      "date": "2024-12-11T17:28:28.205724",
+      "performance": "1.00 ms"
+    }
+  },
+  "day2": {
+    "part1": {
+      "solved": true,
+      "date": "2024-12-12T14:48:38.484183",
+      "performance": "11.00 ms"
+    },
+    "part2": {
+      "solved": true,
+      "date": "2024-12-12T14:48:38.484183",
+      "performance": "7.00 ms"
+    }
+  },
+  "day3": {
+    "part1": {
+      "solved": true,
+      "date": "2024-12-12T15:03:50.987334",
+      "performance": "1.00 ms"
+    },
+    "part2": {
+      "solved": true,
+      "date": "2024-12-12T15:03:50.987334",
+      "performance": "4.00 ms"
     }
   }
 }

@@ -18,14 +18,16 @@ def get_results_file_path():
     return Path("./results.json")
 
 
-async def run_day(day, is_dev_mode=False, is_watch_mode=False, input_file=None):
+async def run_day(day, input_file=None, is_dev_mode=False, is_watch_mode=False):
     if not validate_day(day):
         logger.error("🎅 Pick a day between 1 and 25.")
         logger.info("🎅 To get started, try: python main.py 1")
         return
 
-    file_path = Path(f"./src/{format_day_name(day)}/start.py")
-    input_file = input_file or f"./src/day-{day}/day-{day}.txt"
+    # Ensure input_file retains its value if provided
+    input_file = input_file if input_file else f"{format_day_name(day)}"
+
+    file_path = Path(f"./src/{format_day_name(day)}/index.py")
 
     if not file_path.exists():
         logger.error(f"Day {format_day(day)} does not exist!")
@@ -38,7 +40,7 @@ async def run_day(day, is_dev_mode=False, is_watch_mode=False, input_file=None):
         logger.info(message)
 
     try:
-        module = importlib.import_module(f"src.{format_day_name(day)}.start")
+        module = importlib.import_module(f"src.{format_day_name(day)}.index")
         part1 = getattr(module, "part1", None)
         part2 = getattr(module, "part2", None)
 
@@ -108,11 +110,11 @@ async def run_day(day, is_dev_mode=False, is_watch_mode=False, input_file=None):
         logger.error(f"❌ Error during execution: {error}")
 
 
-
 if __name__ == "__main__":
     try:
         day = int(sys.argv[1]) if len(sys.argv) > 1 else datetime.datetime.now().day
-        input_file = sys.argv[2] if len(sys.argv) > 2 else f"./src/day-{day}.txt"
+        day_name = format_day_name(day)
+        input_file = sys.argv[2] if len(sys.argv) > 2 else f"./src/{day_name}/input.txt"
     except ValueError:
         logger.error("The provided day must be an integer.")
         sys.exit(1)
@@ -123,6 +125,7 @@ if __name__ == "__main__":
     if is_watch_mode:
         logger.info("🔁 Watch mode enabled...")
 
+
         class ReloadHandler(FileSystemEventHandler):
             def __init__(self, day):
                 self.day = day
@@ -131,6 +134,7 @@ if __name__ == "__main__":
                 if event.src_path.endswith(f"/{format_day_name(self.day)}/index.py"):
                     logger.info(f"♻️ Reloading Day {self.day}...")
                     asyncio.run(run_day(self.day, is_dev_mode=True, is_watch_mode=True))
+
 
         observer = Observer()
         observer.schedule(ReloadHandler(day), path=f"./src/{format_day_name(day)}", recursive=False)
@@ -146,4 +150,4 @@ if __name__ == "__main__":
         observer.join()
     else:
 
-        asyncio.run(run_day(day, is_dev_mode, is_watch_mode, input_file))
+        asyncio.run(run_day(day, input_file, is_dev_mode, is_watch_mode))

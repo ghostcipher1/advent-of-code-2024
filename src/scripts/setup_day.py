@@ -38,8 +38,8 @@ async def setup_day(day: int):
 
     try:
         dir_path.mkdir(parents=True, exist_ok=True)
-        (dir_path / f"day-{day}.txt").write_text(input_data)
-        (dir_path / "start.py").write_text(generate_template(day))
+        (dir_path / f"input.txt").write_text(input_data)
+        (dir_path / "index.py").write_text(generate_template(day))
         print(f"{colored(f'Day {day} set up successfully!', 'green', attrs=['bold'])}")
     except Exception as e:
         print(f"{colored(f'Failed to set up day {day}!', 'red', attrs=['bold'])}")

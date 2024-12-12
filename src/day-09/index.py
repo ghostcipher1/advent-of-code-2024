@@ -1,11 +1,11 @@
 ﻿from src.helpers.io import read_input
 
 
-async def get_line():
+async def get_line(input_file):
     """
     Generates a line based on the input string.
     """
-    input_data = await read_input("day-09")
+    input_data = await read_input(input_file)
     line = [
         [idx // 2] * int(digit) if idx % 2 == 0 else ["."] * int(digit)
         for idx, digit in enumerate(input_data)
@@ -13,11 +13,11 @@ async def get_line():
     return [item for sublist in line for item in sublist if len(sublist) > 0]
 
 
-async def part1():
+async def part1(input_file):
     """
     Part 1 solution logic.
     """
-    temp_line = await get_line()
+    temp_line = await get_line(input_file)
     length = len(temp_line) - 1
     stop = length - sum(1 for i in temp_line if i == ".")
     dot_index = next((idx for idx, val in enumerate(temp_line) if val == "."), -1)
@@ -35,11 +35,11 @@ async def part1():
     return checksum
 
 
-async def part2():
+async def part2(input_file):
     """
     Part 2 solution logic.
     """
-    input_data = await read_input("day-09")
+    input_data = await read_input(input_file)
     files = [
         {"id": i // 2 if i % 2 == 0 else None, "size": int(size)}
         for i, size in enumerate(input_data)
